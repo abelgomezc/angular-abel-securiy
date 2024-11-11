@@ -1,0 +1,89 @@
+<p>listado-facturas works!</p>
+
+
+<p-button icon="pi pi-plus" severity="secondary" class="p-button-lg" (click)="irANuevaFactura()"></p-button>
+<div class="card">
+  <p-table
+      #dt1
+      [value]="facturas" 
+      dataKey="id"
+      [rows]="10"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      [loading]="loading"
+      [paginator]="true"
+      [globalFilterFields]="['id', 'username', 'fecha', 'total']"
+  >
+      <ng-template pTemplate="caption">
+          <div class="flex">
+              <!-- <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt1)" /> -->
+              <span class="p-input-icon-left ml-auto">
+                  <i class="pi pi-search"></i>
+                  <!-- <input pInputText type="text" [(ngModel)]="searchValue" (input)="filter()" placeholder="Buscar factura" /> -->
+                  <input
+                  pInputText
+                  type="text"
+                  [(ngModel)]="searchValue"
+                  (input)="onSearchChange()"
+                  placeholder="Buscar factura"
+                />
+                  <!-- <input pInputText type="text" [(ngModel)]="searchValue" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Buscar factura" /> -->
+              </span>
+          </div>
+      </ng-template>
+
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="min-width:5rem">
+                  <div class="flex align-items-center">
+                      ID Factura
+                      
+                  </div>
+              </th>
+              <th style="min-width:15rem">
+                  <div class="flex align-items-center">
+                      Usuario
+                  
+                  </div>
+              </th>
+              <th style="min-width:10rem">
+                  <div class="flex align-items-center">
+                      Fecha
+                    
+                  </div>
+              </th>
+              <th style="min-width:8rem">
+                  <div class="flex align-items-center">
+                      Total
+                   
+                  </div>
+              </th>
+              <th style="min-width:10rem">Acciones</th> <!-- Nueva columna de acciones -->
+
+          </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-factura>
+          <tr>
+              <td>{{ factura.id }}</td>
+              <td>{{ factura.username }}</td>
+              <td>{{ factura.fecha | date: 'dd/MM/yyyy' }}</td>
+              <td>{{ factura.total | currency: 'USD':'symbol' }}</td>
+              <td>
+                <!-- Botón para Ver Detalles -->
+                <button pButton type="button" label="Ver" icon="pi pi-eye" class="p-button-info" 
+                        (click)="verFactura(factura)"></button>
+
+                <!-- Botón para Descargar -->
+                <button pButton type="button" label="Descargar" icon="pi pi-download" class="p-button-success" 
+                        (click)="descargarFactura(factura)"></button>
+            </td>
+          </tr>
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="4">No se encontraron facturas.</td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>

@@ -1,0 +1,155 @@
+<p>registro-producto works!</p>
+<!-- <input
+type="file"
+accept="images/*"
+(change)="changeInput($event)"
+class="absolute inset-0 opacity-0"
+/> -->
+
+
+<!-- <div class="card flex justify-content-center">
+  <p-card header="Simple Card">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="p-field">
+        <label for="nombre">Nombre Producto</label>
+        <input id="nombre" type="text" pInputText formControlName="nombre" />
+      </div> 
+
+    
+
+    
+      <div class="p-field">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" pInputTextarea formControlName="descripcion"></textarea>
+      </div>
+   
+   
+    
+      <div class="p-field">
+        <label for="image">Imagen</label>
+        <input type="file" id="image" (change)="onFileSelected($event)" />
+        <div *ngIf="previewUrl">
+          <img [src]="previewUrl" alt="Vista previa" style="max-width: 100%;"/>
+        </div>
+      </div>
+    
+      <button pButton label="Guardar" type="submit" [disabled]="loading"></button>
+      
+ 
+      <p-progressSpinner *ngIf="loading" [style]="{'width': '50px', 'height': '50px'}"></p-progressSpinner>
+  </form>
+    
+  </p-card>
+</div> -->
+
+<div class="card flex justify-content-center" style="max-width: 600px; margin: 20px auto;">
+  <p-card header="Formulario Producto" [style]="{width: '100%'}">
+    
+    <!-- Nombre del producto -->
+    <div class="p-field">
+      <p-floatLabel>
+        <input pInputText id="nombre" [(ngModel)]="producto.nombre" name="nombre" />
+        <label for="nombre">Nombre</label>
+      </p-floatLabel>
+    </div>
+
+    <!-- Descripción del producto -->
+    <div class="p-field">
+      <p-floatLabel>
+        <textarea 
+          pInputTextarea 
+          id="descripcion" 
+          [(ngModel)]="producto.descripcion" 
+          name="descripcion"
+          rows="5" 
+          cols="30">
+        </textarea>
+        <label for="descripcion">Descripción</label>
+      </p-floatLabel>
+    </div>
+
+    <!-- Precio unitario -->
+    <div class="p-field">
+      <p-floatLabel>
+        <p-inputNumber 
+          [(ngModel)]="producto.precioUnitario" 
+          name="precioUnitario" 
+          [min]="0" 
+          [max]="10000" 
+          mode="currency" 
+          currency="USD"
+          locale="en-US">
+        </p-inputNumber>
+        <label for="precioUnitario">Precio Unitario</label>
+      </p-floatLabel>
+    </div>
+
+    <!-- Stock del producto -->
+    <div class="p-field">
+      <p-floatLabel>
+        <p-inputNumber 
+          [(ngModel)]="producto.stock" 
+          name="stock" 
+          [min]="0" 
+          [max]="10000">
+        </p-inputNumber>
+        <label for="stock">Stock</label>
+      </p-floatLabel>
+    </div>
+
+    <!-- Estado del producto -->
+    <div class="p-field-checkbox">
+      <p-checkbox 
+        id="estado" 
+        [(ngModel)]="producto.estado" 
+        name="estado" 
+        binary="true" 
+        label="Activo">
+      </p-checkbox>
+    </div>
+
+    <!-- Selección de imagen -->
+    <div class="p-field">
+      <p-fileUpload 
+  name="demo[]" 
+  accept="image/*" 
+  (onSelect)="selectedFile = $event.files[0]"  
+  [multiple]="false" 
+  [showUploadButton]="false" 
+  [showCancelButton]="false">
+  <ng-template pTemplate="content">
+    <div *ngIf="uploadedFilePath">
+      <img [src]="uploadedFilePath" alt="Imagen Cargada" style="max-width: 100px; margin-top: 10px;">
+    </div>
+  </ng-template>
+</p-fileUpload>
+
+    </div>
+    
+
+  <!-- Botón de enviar -->
+<div class="p-field">
+  <button 
+    pButton 
+    type="button" 
+    label="Crear Producto" 
+    styleClass="p-button-rounded p-button-success p-button-lg" 
+    (click)="crearProducto()">
+  </button>
+</div>
+
+<p-progressSpinner *ngIf="loading" [style]="{'width': '50px', 'height': '50px'}"></p-progressSpinner>
+  </p-card>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+

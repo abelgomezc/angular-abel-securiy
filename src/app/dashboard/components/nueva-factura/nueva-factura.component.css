@@ -1,0 +1,220 @@
+.form-container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(82, 113, 240, 0.1);
+ 
+}
+
+
+/* Estilo general para todos los inputs y selects */
+.form-control {
+    height: 25px; /* Altura uniforme reducida para todos los inputs y selects */
+    font-size: 14px; /* Tamaño de fuente más pequeño para reducir la altura visual */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Estilo específico para los selects */
+
+.form-control.select-control {
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    height: 25px; /* Altura fija del select */
+    padding-top: 2px; /* Ajuste del padding superior para alinear el texto */
+    line-height: 25px; /* Asegura que el texto se alinee con la altura del select */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Ajuste de altura para textarea */
+textarea.form-control {
+    height: auto; /* Permite que el textarea ajuste su altura según el contenido */
+    min-height: 40px; /* Altura mínima para el textarea */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+/* Clases para controlar el ancho */
+
+.codpequenos-input {
+    width: 60px;
+}
+
+.fecha-input {
+    width: 172px;
+}
+
+.tipotelef-input {
+    width: 150px;
+}
+
+.small_Indetif-input {
+    width: 120px;
+}
+
+.small-input {
+    width: 90px;
+}
+
+.medium-input {
+    width: 130px;
+}
+
+
+.large-input {
+    width: 190px;
+}
+
+.negoci-select {
+    width: 240px;
+}
+
+.full-width-input {
+    flex: 1; /* Ocupa todo el ancho disponible en el contenedor flex */
+}
+
+/* Estilo para los botones */
+.form-group .btn-icon {
+    width: 25px; /* Ancho reducido para los botones */
+    height: 25px; /* Altura reducida para los botones */
+    padding: 0; /* Sin padding */
+    text-align: center; /* Centrar icono */
+    border-radius: 2px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+/* Asegura que los inputs y selects no superen el ancho de su contenedor */
+.form-group {
+    margin-bottom: 10px; /* Espacio reducido entre los grupos de formulario */
+    display: flex; /* Usa flexbox para el alineamiento horizontal */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en una línea */
+    gap: 0.2rem; /* Espacio reducido entre los elementos */
+    /* align-items: left;  Alinea verticalmente los elementos al centro */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    box-sizing: border-box;
+
+}
+
+/* Sección con ancho específico y padding */
+.section {
+    width: 50%; /* Ajustar según el número de secciones */
+    padding-right: 1rem; /* Espacio entre secciones */
+}
+
+/* Alinea las secciones horizontalmente con margen mínimo entre ellas */
+.d-flex.justify-content-between {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.3rem; /* Espacio mínimo entre las secciones y el formulario */
+}
+
+
+
+/*TABLA DETALLE*/
+
+
+/* Estilo exclusivo para TablaDetalle */
+#TablaDetalle tbody td {
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: normal;
+    height: 15px; /* Altura más pequeña */
+}
+
+#TablaDetalle tbody td.btnCell {
+    padding: 0;
+    text-align: center;
+}
+
+/* Controla que las columnas de Item y Bodega sean más largas */
+#TablaDetalle tbody td:nth-child(2), /* Item column */
+#TablaDetalle tbody td:nth-child(5) /* Bodega column */
+{
+    width: 300px; /* Ancho fijo para estas dos columnas */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Otras celdas más pequeñas */
+#TablaDetalle tbody td:not(:nth-child(2)):not(:nth-child(5)) {
+    width: 80px; /* Ancho menor para las demás columnas */
+}
+
+
+/* Asegurar bordes visibles para la tabla */
+#TablaDetalle {
+    border-collapse: collapse; /* Asegura que los bordes de las celdas se fusionen */
+    width: 100%; /* Para que ocupe todo el ancho disponible */
+}
+
+#TablaDetalle th {
+    padding: 5px; /* Reducir el padding en general */
+    line-height: 1.2; /* Ajustar la altura de la línea para que el texto se vea más compacto */
+    white-space: normal; /* Permitir que el texto se ajuste en varias líneas */
+    word-wrap: break-word; /* Permitir que las palabras largas se dividan y ajusten */
+    font-size: 0.85rem; /* Ajustar el tamaño de la fuente si deseas un tamaño más pequeño */
+    text-align: center; /* Centrar el texto en el encabezado */
+}
+
+
+/* Para la columna de  */
+#TablaDetalle td.largo-column {
+    max-width: 300px; /* Ajusta este valor según el tamaño máximo que desees */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el contenido que sobrepasa el ancho máximo */
+    text-overflow: ellipsis; /* Muestra "..." si el texto es demasiado largo */
+}
+
+#TablaDetalle td.corto-column {
+    max-width: 100px; /* Ajusta este valor según el tamaño máximo que desees */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    overflow: hidden; /* Oculta el contenido que sobrepasa el ancho máximo */
+    text-overflow: ellipsis; /* Muestra "..." si el texto es demasiado largo */
+}
+
+
+/* Para asegurar que la celda del checkbox ocupe todo el espacio */
+#TablaDetalle td.checkbox-column {
+    padding: 0; /* Elimina todo el padding de la celda */
+    text-align: center; /* Centra horizontalmente */
+    vertical-align: middle; /* Centra verticalmente */
+    width: 40px; /* Ajusta el ancho de la celda */
+}
+
+/* Ajusta el tamaño del checkbox para que ocupe toda la celda */
+#TablaDetalle td.checkbox-column input[type="checkbox"] {
+    width: 80%; /* El checkbox ocupará todo el ancho de la celda */
+    height: 80%; /* El checkbox ocupará toda la altura de la celda */
+    margin: 0; /* Elimina márgenes para un mejor ajuste */
+    box-sizing: border-box; /* Para asegurarse de que el padding y el borde se cuenten en el tamaño */
+}
+
+
+/* Para celdas editables con ancho fijo */
+#TablaDetalle td.editable {
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+
+
+    max-width: 50px; /* Máximo ancho de la celda */
+    width: 50px; /* Ancho fijo de la celda */
+    padding-right: 5px; /* Un pequeño padding para mejorar la legibilidad */
+    vertical-align: middle; /* Alinea el texto en el centro vertical */
+}
+
+/* Para permitir el desplazamiento horizontal en las celdas editables */
+#TablaDetalle td.editable[contenteditable="true"] {
+    overflow: auto; /* Activa el scroll en la celda editable */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+/* Añadir un scroll solo cuando el contenido sea demasiado largo */
+#TablaDetalle td.editable[contenteditable="true"]::-webkit-scrollbar {
+    height: 4px; /* Ajusta el tamaño de la barra de desplazamiento */
+}
+
+#TablaDetalle td.editable[contenteditable="true"]::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5); /* Color de la barra de desplazamiento */
+    border-radius: 10px; /* Bordes redondeados */
+}

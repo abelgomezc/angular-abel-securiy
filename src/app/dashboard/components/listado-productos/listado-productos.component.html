@@ -1,0 +1,95 @@
+<p>listado-productos works!</p>
+<p-button icon="pi pi-plus" severity="secondary" class="p-button-lg" (click)="irANuevoProducto()"></p-button>
+
+
+<div class="card">
+  <p-table
+      #dt1
+      [value]="productos" 
+      dataKey="id"
+      [rows]="10"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      [loading]="loading"
+      [paginator]="true"
+      [globalFilterFields]="['id', 'username', 'fecha', 'total']"
+  >
+      <ng-template pTemplate="caption">
+          <div class="flex">
+              <!-- <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt1)" /> -->
+              <span class="p-input-icon-left ml-auto">
+                  <i class="pi pi-search"></i>
+                  <!-- <input pInputText type="text" [(ngModel)]="searchValue" (input)="filter()" placeholder="Buscar factura" /> -->
+                  <input
+                  pInputText
+                  type="text"
+                  [(ngModel)]="searchValue"
+                  (input)="onSearchChange()"
+                  placeholder="Buscar factura"
+                />
+                  <!-- <input pInputText type="text" [(ngModel)]="searchValue" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Buscar factura" /> -->
+              </span>
+          </div>
+      </ng-template>
+
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="min-width:5rem">
+                  <div class="flex align-items-center">
+                      ID Porducto
+                      
+                  </div>
+              </th>
+              <th style="min-width:15rem">
+                  <div class="flex align-items-center">
+                      Nombre
+                  
+                  </div>
+              </th>
+              <th style="min-width:10rem">
+                  <div class="flex align-items-center">
+                      Descripcion
+                    
+                  </div>
+              </th>
+              <th style="min-width:8rem">
+                  <div class="flex align-items-center">
+                      precio
+                   
+                  </div>
+              </th>
+               <th style="min-width:10rem">Imagen</th> 
+              <th style="min-width:10rem">Acciones</th> 
+
+          </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-producto>
+          <tr>
+              <td>{{ producto.id }}</td>
+              <td>{{ producto.nombre }}</td>
+              <td>{{ producto.descripcion }}</td>
+              <td>{{ producto.precioUnitario }}</td>
+             
+              <td>
+                <img *ngIf="producto.urlimagen" [src]="producto.urlimagen" alt="Imagen Producto" style="max-width: 100px;"/>
+              </td>
+        
+              <td>
+                <!-- Botón para Ver Detalles -->
+                <button pButton type="button" label="Ver" icon="pi pi-eye" class="p-button-info" 
+                        (click)="verFactura(producto)"></button>
+
+                <!-- Botón para Descargar -->
+                <button pButton type="button" label="Descargar" icon="pi pi-download" class="p-button-success" 
+                        (click)="descargarFactura(producto)"></button>
+            </td>
+          </tr>
+      </ng-template>
+
+      <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="4">No se encontraron facturas.</td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>

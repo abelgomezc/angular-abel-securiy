@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h5 class="card-title text-center">Nueva Factura</h5>
+    <div class="form-container">
+        
+        <div class="card-body">
+            <form id="form_cabezera">
+                <div class="d-flex justify-content-between">
+                    <!-- Sección 1 -->
+                    <div class="section">
+                        <div class="form-group">
+    
+        
+                          
+                            <label for="fechaEmision">Fecha:</label>
+                            <input  pInputText type="datetime-local" class="form-control fecha-input " id="fechaEmision"
+                                   placeholder="Fecha Emision">
+                            <label for="cod_moneda">Moneda :</label>
+                            <input  pInputText type="text" class="form-control codpequenos-input" id="cod_moneda" placeholder="Moneda">
+    
+    
+                        </div>
+                        <div class="form-group">
+                            <label for="cod_agente">Agente:</label>
+                            <input pInputText type="text" class="form-control small-input" id="cod_agente" placeholder="co_agente">
+                            <input pInputText type="text" class="form-control small_Indetif-input" id="nombre_agente"
+                            placeholder="Nombre agente">
+          
+                        </div>
+                        <div class="form-group">
+                            <label for="identificacion">CL/RUC:</label>
+                            <input pInputText type="text" class="form-control small_Indetif-input" id="identificacion"
+                                   placeholder="identificacion">
+                          
+                            <input  pInputText type="text" class="form-control small-input" id="cod_cliente" placeholder="cod_cliente">
+    
+            
+                            <select name="cod_tipo_persona" id="cod_tipo_persona"
+                                    class="form-control select-control small_Indetif-input" >
+                                <option value="NAT">Natural</option>
+                                <option value="JUR">Juridica</option>
+    
+                            </select>
+                            <select name="cod_tipo_identitificacion" id="cod_tipo_identitificacion"
+                            class="form-control select-control small_Indetif-input" >
+                        <option value="NAT">RUC</option>
+                        <option value="JUR">CEDULA</option>
+                        <option value="JUR">PASAPORTE</option>
+
+                    </select>
+    
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre_cliente">Nombre:</label>
+                            <input pInputText type="text" class="form-control full-width-input" id="nombre_cliente"
+                                   placeholder="Nombre Cliente">
+    
+                        </div>
+    
+                   
+                        <div class="form-group">
+                            <label for="ln_saldo_vencido">Sal. Venc.:</label>
+                            <input pInputText type="text" class="form-control medium-input" id="ln_saldo_vencido"
+                                   placeholder="Saldo Vencido">
+                            <label for="ln_cupo">Cupo Disponible:</label>
+                            <input pInputText type="text" class="form-control small-input" id="ln_cupo" placeholder="cupo">
+    
+                        </div>
+                        <div class="form-group">
+                            <label for="LV_NEGOCIACION">Negociacion:</label>
+                            <select name="cod_tipo_persona" id="LV_NEGOCIACION"
+                                    class="form-control select-control negoci-select">
+                                <option value="1">op1</option>
+                                <option value="2">op1</option>
+    
+                            </select>
+                            <label for="plazo_dias">Plazo Dias:</label>
+                            <input pInputText type="text" class="form-control small-input" id="plazo_dias" placeholder="Plazo Dias">
+    
+    
+                        </div>
+                        <div class="form-group">
+                            <label for="ln_plazo">Plazo Cliente: </label>
+                            <input pInputText type="text" class="form-control small-input" id="ln_plazo" placeholder="Plazo Cliente">
+                            <label for="nro_cuotas"># Cuotas:</label>
+                            <input pInputText type="text" class="form-control small-input" id="nro_cuotas" placeholder="nro_cuotas">
+    
+    
+                        </div>
+                        <div class="form-group">
+                            <label for="observaciones">Observaciones Bodega:</label>
+                            <textarea  pInputTextarea class="form-control full-width-input " id="observaciones"
+                                      placeholder="Ingrese observaciones aquí"
+                                      rows="2"></textarea>
+    
+                        </div>
+    
+                    </div>
+                    <!-- Sección 2-->
+                    <div class="section">
+                   
+                        <div class="form-group">
+                            <label for="cod_pais">Pais: </label>
+                            <input  pInputText type="text" class="form-control codpequenos-input" id="cod_pais" placeholder="cod Pais">
+    
+                            <select class=" form-control select-control medium-input" name="state" id="selectPais"></select>
+                            <label for="cod_lugar">Lugar: </label>
+                            <input pInputText type="text" class="form-control small-input" id="cod_lugar" placeholder="cod Lugar">
+                            <select class="form-control full-width-input" name="state" id="selectLugar"></select>
+    
+    
+                        </div>
+                        <div class="form-group">
+                            <label for="calle">Calle: </label>
+                            <input pInputText type="text" class="form-control medium-input" id="calle" placeholder="calle">
+                            <label for="NRO">#: </label>
+                            <input pInputText type="text" class="form-control codpequenos-input" id="NRO" placeholder="NUMERO">
+                            <label for="interseccion">Inters: </label>
+                            <input pInputText type="text" class="form-control full-width-input" id="interseccion"
+                                   placeholder="Interseccion">
+                        </div>
+                        <div class="form-group">
+
+                            <label for="email">E-mail: </label>
+                            <input pInputText type="email" class="form-control full-width-input" id="email" placeholder="Email">
+                    
+                            <label for="telefono">Contacto: </label>
+                            <input pInputText type="tel" class="form-control full-width-input " id="telefono" placeholder="Telefono">
+    
+                        </div>
+                    
+                        <div class="form-container">
+                            <div class="form-group">
+                                <label for="ln_anticipos_cliente">Anticipos: </label>
+                                <input pInputText type="text" class="form-control small-input" id="ln_anticipos_cliente"
+                                       placeholder="ANTICIPOS_CLIENTE">
+                            </div>
+                            <div class="form-group">
+                                <label for="ln_saldos_cliente">Pendiente: </label>
+                                <input pInputText type="text" class="form-control small-input" id="ln_saldos_cliente"
+                                       placeholder="SALDOS_CLIENTE ">
+    
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </form>
+        </div>
+    
+    </div>
+    <hr>
+
+    <div class="form-container">
+        <div class="">
+            <!-- Contenedor con scroll -->
+            <div style="max-height: 500px; overflow-y: auto;">
+    
+                <table id="TablaDetalle"
+                       class="table table-sm table-hover table-bordered table-striped dataTable dtr-inline">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Item</th>
+                        <th>Unidad</th>
+                        <th></th>
+                        <th>Bodega</th>
+                        <th>Saldo Disponib.</th>
+                        <th>Cantid. Pedido</th>
+                        <th>Cantid. Facturar</th>
+                        <th>% Nego.</th>
+                        <th>Precio</th>
+                        <th>IVA.</th>
+                        <th>Total</th>
+                        <th>Prom.</th>
+                        <!--<th>Eli.</th> -->
+    
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="5"></td>
+                        <td class="text-right">Total:</td>
+                        <td id="totalCantidadPedido" class="text-right"></td>
+                        <td id="totalCantidadFacturar" class="text-right"></td>
+                        <td colspan="6"></td>
+                    </tr>
+                    </tfoot>
+    
+    
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+    <input
+    type="file"
+    accept="images/*"
+    (change)="changeInput($event)"
+    class="absolute inset-0 opacity-0"
+  />
+    
+    
+</body>
+</html>

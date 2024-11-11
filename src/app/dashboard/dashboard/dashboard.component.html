@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+     
+    <!-- Barra superior -->
+<div class="top-bar">
+    <div class="logo">
+      <img  src="assets/img/logo.png" alt="Logo de la aplicación" style="height: 40px;"/>
+    </div>
+    <div class="user-info" *ngIf="currentAuthUser">
+      <img src="assets/img/yo.jpg" alt="Foto del usuario" style="border-radius: 50%; width: 40px; height: 40px;">
+      <span>{{ currentAuthUser.username }}</span>
+    </div>
+  </div>
+  
+    <nav class="main-menu">
+    <ul>
+        <li>
+            <a routerLink="/dashboard/home" routerLinkActive="active">
+                <i class="fa fa-home fa-2x"></i>
+                <span class="nav-text">
+                   Inicio
+                </span>
+            </a>
+          
+        </li>
+     
+        <li class="has-subnav" *ngIf="hasRole('ROLE_ADMIN')">
+            <a routerLink="/dashboard/listado-productos" routerLinkActive="active">
+                <i class="fa fa-solid fa-clipboard"></i>
+                <span class="nav-text">
+                    Productos
+                </span>
+            </a>
+        </li>
+        <!-- <li class="has-subnav">
+            <a  routerLink="/dashboard/pedidos" routerLinkActive="active" >
+                <i class="fa fa-shopping-cart fa-2x"></i>
+                <span class="nav-text">Pedidos Clientes</span>
+            </a>
+            
+           
+        </li> -->
+        <li  *ngIf="hasRole('ROLE_ADMIN')">
+            <a  routerLink="/dashboard/listado-facturas" routerLinkActive="active">
+                <i class="fa fa-file fa-2x"></i>
+                <span class="nav-text">
+                    Facturas
+                </span>
+            </a>
+        </li>
+      
+        <li>
+           <a href="#">
+               <i class="fa fa-cogs fa-2x"></i>
+                <span class="nav-text">
+                    Herramientas
+                </span>
+            </a>
+        </li>
+
+        <li *ngIf="hasRole('ROLE_ADMIN')">
+            <a routerLink="/dashboard/user" routerLinkActive="active">
+              <i class="fa fa-file fa-2x"></i>
+              <span class="nav-text">Usuarios</span>
+            </a>
+          </li>
+      
+        <li class="has-subnav">
+            <a routerLink="/dashboard/perfil" routerLinkActive="active">
+
+                <i class="fa fa-user fa-2x"></i>
+                <span class="nav-text">
+                 perfil
+                </span>
+            </a>
+            
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-info fa-2x"></i>
+                <span class="nav-text">Sobre Nosotros</span>
+            </a>
+            
+        </li>
+    </ul>
+
+    <ul class="logout">
+        <li>
+          <a  (click)="onLogout()">
+            <i class="fa fa-power-off fa-2x"></i>
+            <span class="nav-text">Logout</span>
+          </a>
+        </li>  
+      </ul>
+</nav>
+<div class="content">
+    <router-outlet></router-outlet>   
+</div>
+</body>
+</html>
